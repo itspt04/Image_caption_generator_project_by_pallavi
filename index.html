@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Image Caption Generator </h2>
+
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        
+           <label for="imageUpload" class="upload-label">Choose an Image...</label>
+           <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" required><br><br>
+        
+        
+           <label for="numberUpload" class="upload-label">Enter the number of captions you want...</label>
+           <input type="number" id="numberUpload" name="number" min="1" max="10" step="1"  onkeyup="manage(this)"/><br><br>
+    
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <input type="button" class="btn btn-primary btn-lg " id="btn-predict" value="Submit" disabled/>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span> </span>
+    </h3>
+</div>
+<script>
+    function manage(numberUpload)
+    {
+        var bt = document.getElementById('btn-predict');
+        if (numberUpload.value != '')
+        {
+            bt.disabled = false;
+
+        }
+        else{
+            bt.disabled= true;
+        }
+    }
+</script>
+
+
+{% endblock %}
