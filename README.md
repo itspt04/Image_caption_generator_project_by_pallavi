@@ -1,1 +1,1 @@
-# Malaria-Detection
+# Image_caption_generator
